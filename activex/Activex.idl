@@ -1,0 +1,58 @@
+// Activex.idl : IDL source for Activex.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Activex.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+#include "olectl.h"
+	
+
+	[
+		object,
+		uuid(F97FF462-1005-4F16-82AD-13AAC8160581),
+		dual,
+		helpstring("IEmbed Interface"),
+		pointer_default(unique)
+	]
+	interface IEmbed : IDispatch
+	{
+		[propput, id(DISPID_AUTOSIZE)]
+		HRESULT AutoSize([in]VARIANT_BOOL vbool);
+		[propget, id(DISPID_AUTOSIZE)]
+		HRESULT AutoSize([out,retval]VARIANT_BOOL* pbool);
+		[propput, id(DISPID_BACKCOLOR)]
+		HRESULT BackColor([in]OLE_COLOR clr);
+		[propget, id(DISPID_BACKCOLOR)]
+		HRESULT BackColor([out,retval]OLE_COLOR* pclr);
+		[propput, id(DISPID_TABSTOP)]
+		HRESULT TabStop([in]VARIANT_BOOL vbool);
+		[propget, id(DISPID_TABSTOP)]
+		HRESULT TabStop([out, retval]VARIANT_BOOL* pbool);
+
+		[id(1), helpstring("Mothod LoadFlashMovie")] HRESULT LoadFlashMovie([in] BSTR bstr);
+		[id(2), helpstring("Mothod LoadWmvMovie")] HRESULT LoadWmvMovie([in] BSTR bstr);
+		[id(3), helpstring("Mothod SetTimer")] HRESULT SetJmpTimer([in] LONG tm);
+		[id(4), helpstring("Mothod Play")] HRESULT Play(void);
+	};
+
+[
+	uuid(0F2B8238-8BE2-4581-8EC1-CE3CA6762CC8),
+	version(1.0),
+	helpstring("Activex 1.0 Type Library")
+]
+library ACTIVEXLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(62762BB2-C5D5-4CAC-A17C-CABC660678F2),
+		helpstring("Embed Class")
+	]
+	coclass Embed
+	{
+		[default] interface IEmbed;
+	};
+};

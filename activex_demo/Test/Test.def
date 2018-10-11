@@ -1,0 +1,9 @@
+; Test.def : Declares the module parameters.
+
+LIBRARY      "Test.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

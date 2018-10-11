@@ -1,0 +1,111 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>New Page 1</title>
+
+<script language="vbscript">
+' 初始化设置
+SUB MyCreate()
+  Document.Form1.ComPort.Value = ICCard1.ComPort
+END SUB
+' 端口设置
+SUB ComPort_OnChange()
+  ICCard1.ComPort = Document.Form1.ComPort.Value
+END SUB
+' 读IC卡信息
+SUB ReadICBtn_OnClick()
+  Dim str, strArray
+  str = ""
+  str = ICCard1.ReadICCard
+  if Len(trim(str))>0 then
+  strArray = split(str, "~")
+  ' 车主姓名
+  Document.Form1.CZXM.Value = strArray(8)
+  ' 电话
+  Document.Form1.TEL.Value = strArray(36)
+  ' 地址
+  Document.Form1.ADDR.Value = strArray(26)
+  ' 单位代码
+  Document.Form1.DWDM.Value = strArray(24)
+  ' 证件名称
+  Document.Form1.ZJMC.Value = strArray(5)
+  ' 证件号码
+  Document.Form1.ZJHM.Value = strArray(6)
+  ' 车辆类型
+  Document.Form1.CLLX.Value = strArray(20)
+  ' 厂牌
+  Document.Form1.CP.Value = strArray(15)
+  ' 型号
+  Document.Form1.XH.Value = strArray(16)
+  ' 制造国
+  Document.Form1.COUNTRY.Value = strArray(11)
+  ' 所有权
+  Document.Form1.SYQ.Value = strArray(7)
+  ' 出厂日期
+  Document.Form1.CCRQ.Value = strArray(37)
+  ' 转向形式
+  Document.Form1.ZXXS.Value = strArray(44)
+  ' 燃料类型
+  Document.Form1.RLLX.Value = strArray(39)
+  ' 车身颜色
+  Document.Form1.CSYS.Value = strArray(40)
+  ' 发动机号
+  Document.Form1.FDJH.Value = strArray(18)
+  ' 车架号码
+  Document.Form1.CJHM.Value = strArray(19)
+  ' 号牌种类
+  Document.Form1.HPZL.Value = strArray(9)
+  ' 排量
+  Document.Form1.PL.Value = strArray(42)
+  end if
+END SUB
+</script>
+
+</head>
+
+<body onLoad="MyCreate">
+
+<p>
+<object classid="clsid:7AE7497B-CAD8-4E66-A58B-DDE9BCAF6B61" id="ICCard1">
+  <param name="_Version" value="65536">
+  <param name="_ExtentX" value="635">
+  <param name="_ExtentY" value="582">
+  <param name="_StockProps" value="64">
+  <param name="Enabled" value="1">
+</object>
+</p>
+<form method="POST" action="--WEBBOT-SELF--" name="form1">
+  <p>
+  车主姓名：<input type="text" name="CZXM" size="20">
+  电&nbsp;&nbsp;&nbsp;&nbsp;话：<input type="text" name="TEL" size="20"><BR>
+  地&nbsp;&nbsp;&nbsp;&nbsp;址：<input type="text" name="ADDR" size="20">
+  单位代码：<input type="text" name="DWDM" size="20"><BR>
+  证件名称：<input type="text" name="ZJMC" size="20">
+  证件号码：<input type="text" name="ZJHM" size="20"><BR>
+  车辆类型：<input type="text" name="CLLX" size="20">
+  厂&nbsp;&nbsp;&nbsp;&nbsp;牌：<input type="text" name="CP" size="20"><BR>
+  型&nbsp;&nbsp;&nbsp;&nbsp;号：<input type="text" name="XH" size="20">
+  制&nbsp;造&nbsp;国：<input type="text" name="COUNTRY" size="20"><BR>
+  所&nbsp;有&nbsp;权：<input type="text" name="SYQ" size="20">
+  出厂日期：<input type="text" name="CCRQ" size="20"><BR>
+  转向形式：<input type="text" name="ZXXS" size="20">
+  燃料类型：<input type="text" name="RLLX" size="20"><BR>
+  车身颜色：<input type="text" name="CSYS" size="20">
+  发动机号：<input type="text" name="FDJH" size="20"><BR>
+  车架号码：<input type="text" name="CJHM" size="20">
+  号牌种类：<input type="text" name="HPZL" size="20"><BR>
+  排&nbsp;&nbsp;&nbsp;&nbsp;量：<input type="text" name="PL" size="20"><BR><BR>
+  <input type="button" value="读卡" name="ReadICBtn">
+  <select name="ComPort" size="1">
+    <option selected value="1">端口一</option>
+    <option value="2">端口二</option>
+    <option value="3">端口三</option>
+    <option value="4">端口四</option>
+  </select>
+  </p>
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+// ICCard.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (ICCard.tlb) that will become a resource in
+// ICCard.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(9D14D2CA-A3DB-4F72-BFCE-6136AD895EEB), version(1.0),
+  helpfile("ICCard.hlp"),
+  helpstring("ICCard ActiveX Control module"),
+  control ]
+library ICCARDLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CICCardCtrl
+
+	[ uuid(7EE8B159-980F-4380-845A-28D70D1BF75C),
+	  helpstring("Dispatch interface for ICCard Control"), hidden ]
+	dispinterface _DICCard
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CICCardCtrl)
+			[id(DISPID_ENABLED), bindable, requestedit] boolean Enabled;
+			[id(1)] short ComPort;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CICCardCtrl)
+			[id(2)] BSTR ReadICCard();
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CICCardCtrl
+
+	[ uuid(CEF07BA8-3493-47F6-8E24-24DA7914A084),
+	  helpstring("Event interface for ICCard Control") ]
+	dispinterface _DICCardEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CICCardCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CICCardCtrl
+
+	[ uuid(7AE7497B-CAD8-4E66-A58B-DDE9BCAF6B61),
+	  helpstring("ICCard Control"), control ]
+	coclass ICCard
+	{
+		[default] dispinterface _DICCard;
+		[default, source] dispinterface _DICCardEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

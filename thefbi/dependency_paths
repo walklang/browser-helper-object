@@ -1,0 +1,6 @@
+GLIB = /usr/include/glib-2.0
+GECKO_SDK = /home/lerc/Installs/Tarballs/gecko-sdk
+LIBVX32 = /home/lerc/Installs/Tarballs/vx32-0.12/src/libvx32
+
+GECKO_INCLUDES = -I $(GECKO_SDK)/include
+GTK_INCLUDES = -I /usr/include/gtk-1.2/ -I $(GLIB) -I /usr/lib/glib-2.0/include

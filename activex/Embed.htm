@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<TITLE>内嵌Activex的Activex插件测试页</TITLE>
+</HEAD>
+<BODY align="center">
+
+
+<OBJECT ID="Play" CLASSID="CLSID:62762BB2-C5D5-4CAC-A17C-CABC660678F2" width=700 height=400 ></OBJECT>
+<br>Flash URL:<input type=text size=45 id="urlflash" value="http://www.atfriday.com/GameZone/200471922656/20047198816907.swf">    
+Time:<input type=text size=3 id="elapse" value=5>
+<br>WMV URL:  <input type=text size=45 id="wmvflash" value="D:\\test\\Embed\\Embed\\wmp.wmv">
+<input type=button value="Play" onclick="play()">
+
+<script language="javascript" type="text/javascript">
+function play()
+{
+	var obj;	
+	var palyobj = document.getElementById("Play");
+
+	obj = document.getElementById("urlflash");
+	palyobj.LoadFlashMovie(obj.value);
+	
+	obj = document.getElementById("wmvflash");
+	palyobj.LoadWmvMovie(obj.value);
+
+	obj = document.getElementById("elapse");
+	palyobj.SetJmpTimer(parseInt(obj.value));
+
+	palyobj.Play();
+}
+</script>
+
+</BODY>
+</HTML>

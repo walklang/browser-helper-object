@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ICCard - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP123.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"Release/ICCard.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"E:\工作\读IC控件\正式版\ICCard\ICCard.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP123.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP124.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:no /pdb:"Release/ICCard.pdb" /machine:I386 /def:".\ICCard.def" /out:"Release/ICCard.ocx" /implib:"Release/ICCard.lib" 
+".\Release\ICCard.obj"
+".\Release\ICCardCtl.obj"
+".\Release\ICCardPpg.obj"
+".\Release\StdAfx.obj"
+".\Release\ICCard.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP124.tmp"
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP125.bat" with contents
+[
+@echo off
+regsvr32 /s /c ".\Release\ICCard.ocx"
+echo regsvr32 exec. time > ".\Release\regsvr32.trg"
+]
+Creating command line "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP125.bat"
+Compiling...
+ICCard.cpp
+Linking...
+   Creating library Release/ICCard.lib and object Release/ICCard.exp
+<h3>Output Window</h3>
+Registering ActiveX Control...
+
+
+
+<h3>Results</h3>
+ICCard.ocx - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

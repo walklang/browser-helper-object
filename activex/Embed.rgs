@@ -1,0 +1,33 @@
+HKCR
+{
+	Activex.Embed.1 = s 'Embed Class'
+	{
+		CLSID = s '{62762BB2-C5D5-4CAC-A17C-CABC660678F2}'
+	}
+	Activex.Embed = s 'Embed Class'
+	{
+		CLSID = s '{62762BB2-C5D5-4CAC-A17C-CABC660678F2}'
+		CurVer = s 'Activex.Embed.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {62762BB2-C5D5-4CAC-A17C-CABC660678F2} = s 'Embed Class'
+		{
+			ProgID = s 'Activex.Embed.1'
+			VersionIndependentProgID = s 'Activex.Embed'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove 'Control'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 101'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '131473'
+			}
+			'TypeLib' = s '{0F2B8238-8BE2-4581-8EC1-CE3CA6762CC8}'
+			'Version' = s '1.0'
+		}
+	}
+}

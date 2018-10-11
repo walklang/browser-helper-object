@@ -1,0 +1,53 @@
+// Test.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (Test.tlb) that will become a resource in
+// Test.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(7BE248BC-79A9-4606-8ADA-159A43EF2D20), version(1.0),
+  helpfile("Test.hlp"),
+  helpstring("Test ActiveX Control module"),
+  control ]
+library TestLib
+{
+	importlib(STDOLE_TLB);
+
+	//  Primary dispatch interface for CTestCtrl
+
+	[ uuid(E6205E4A-08F4-4699-A86D-DF361D1AF117),
+	  helpstring("Dispatch interface for Test Control")]
+	dispinterface _DTest
+	{
+		properties:
+		methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CTestCtrl
+
+	[ uuid(65E0FC1A-7532-45C1-9294-F8308A71F781),
+	  helpstring("Event interface for Test Control") ]
+	dispinterface _DTestEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			[id(1)] void TestAlert(BSTR message);
+	};
+
+	//  Class information for CTestCtrl
+
+	[ uuid(1A4B594A-A204-4064-9B94-2ECF018B18ED),
+	  helpstring("Test Control"), control ]
+	coclass Test
+	{
+		[default] dispinterface _DTest;
+		[default, source] dispinterface _DTestEvents;
+	};
+
+};
